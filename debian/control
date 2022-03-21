@@ -1,0 +1,101 @@
+Source: rmlui
+Section: devel
+Priority: optional
+Maintainer: Miriam Ruiz <miriam@debian.org>
+Build-Depends: debhelper (>= 9), cmake, dh-buildinfo, quilt,
+ libgl-dev | libgl1-mesa-dev, libglu1-mesa-dev,
+ liblua5.4-dev | liblua5.3-dev | liblua5.2-dev | liblua5.1-0-dev,
+ libsdl2-dev, libsdl2-image-dev, libfreetype-dev, librlottie-dev
+Standards-Version: 4.6.0.1
+Homepage: https://github.com/mikke89/RmlUi
+
+Package: librmlui-dev
+Section: libdevel
+Architecture: any
+Depends: librmlui4 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: C++ user interface based on HTML and CSS standards - devel
+ RmlUi aims at being a light-weight and performant library with its own
+ layouting engine and few dependencies. In essence, RmlUi takes your
+ HTML/CSS-like source files and turns them into vertices, indices and draw
+ commands, and then you bring your own renderer to draw them. And of course
+ there is full access to the element hierarchy/DOM, event handling, and all
+ the interactivity and customizability you would expect. All of this directly
+ from C++, or optionally from scripting languages using plugins. The core
+ library compiles down to fractions of the size it takes to integrate a fully
+ fledged web browser as other libraries do in this space.
+ .
+ RmlUi is based around the XHTML1 and CSS2 standards while borrowing features
+ from HTML5 and CSS3, and extends them with features suited towards real-time
+ applications.
+ .
+ A C++14 compatible compiler is required.
+ .
+ This package contains the development libraries and headers.
+
+Package: librmlui4
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: librmlui-dev (= ${binary:Version})
+Description: C++ user interface based on HTML and CSS standards
+ RmlUi aims at being a light-weight and performant library with its own
+ layouting engine and few dependencies. In essence, RmlUi takes your
+ HTML/CSS-like source files and turns them into vertices, indices and draw
+ commands, and then you bring your own renderer to draw them. And of course
+ there is full access to the element hierarchy/DOM, event handling, and all
+ the interactivity and customizability you would expect. All of this directly
+ from C++, or optionally from scripting languages using plugins. The core
+ library compiles down to fractions of the size it takes to integrate a fully
+ fledged web browser as other libraries do in this space.
+ .
+ RmlUi is based around the XHTML1 and CSS2 standards while borrowing features
+ from HTML5 and CSS3, and extends them with features suited towards real-time
+ applications.
+ .
+ Features:
+  - Cross platform architecture: Windows, macOS, Linux, iOS, etc.
+  - Dynamic layout system.
+  - Full animation and transform support.
+  - Efficient application-wide styling, with a custom-built templating engine.
+  - Fully featured control set: buttons, sliders, drop-downs, etc.
+  - Runtime visual debugging suite.
+ .
+ Extensible:
+  - Abstracted interfaces for plugging in to any game engine.
+  - Decorator engine allowing custom application-specific effects that can be
+    applied to any element.
+  - Generic event system that binds seamlessly into existing projects.
+  - Easily integrated and extensible with the Lua scripting plugin.
+ .
+ Controllable:
+  - The user controls their own update loop, calling into RmlUi as desired.
+  - The library strictly runs as a result of calls to its API, never in the
+    background.
+  - Input handling and rendering is performed by the user.
+  - The library generates vertices, indices, and textures for the user to
+    render how they like.
+  - File handling and the font engine can optionally be fully replaced by the
+    user.
+
+Package: rmlui-examples
+Section: devel
+Architecture: any
+Depends: librmlui4 (= ${binary:Version}), librmlui-dev, ${shlibs:Depends}, ${misc:Depends}
+Description: C++ user interface based on HTML and CSS standards - examples
+ RmlUi aims at being a light-weight and performant library with its own
+ layouting engine and few dependencies. In essence, RmlUi takes your
+ HTML/CSS-like source files and turns them into vertices, indices and draw
+ commands, and then you bring your own renderer to draw them. And of course
+ there is full access to the element hierarchy/DOM, event handling, and all
+ the interactivity and customizability you would expect. All of this directly
+ from C++, or optionally from scripting languages using plugins. The core
+ library compiles down to fractions of the size it takes to integrate a fully
+ fledged web browser as other libraries do in this space.
+ .
+ RmlUi is based around the XHTML1 and CSS2 standards while borrowing features
+ from HTML5 and CSS3, and extends them with features suited towards real-time
+ applications.
+ .
+ A C++14 compatible compiler is required.
+ .
+ This package contains the code examples.
