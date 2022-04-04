@@ -69,7 +69,7 @@ list(APPEND CORE_PRIVATE_DEFS RMLUI_VERSION="${RMLUI_VERSION_SHORT}")
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 	option(BUILD_TESTING "" OFF)
-    include(CTest)
+	include(CTest)
 	
 	if(BUILD_TESTING)
 		set(RMLUI_TESTS_ENABLED ON)
@@ -895,6 +895,15 @@ if(BUILD_SAMPLES)
 		)
 	endif()
 endif()
+
+#===================================
+# Generate pkg-config file =========
+#===================================
+
+	configure_file(pkgconfig/nanogui.pc.in nanogui.pc @ONLY)
+
+	install(FILES ${CMAKE_BINARY_DIR}/nanogui.pc
+		DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
 
 #===================================
 # Generate Config.cmake files ======
