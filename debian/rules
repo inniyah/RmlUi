@@ -71,9 +71,6 @@ install: build
 	dh_installdirs
 	cd $(BUILD_TREE_STATIC); $(MAKE) DESTDIR=$(CURDIR)/debian/tmp install
 	cd $(BUILD_TREE_SHARED); $(MAKE) DESTDIR=$(CURDIR)/debian/tmp install
-	install -d $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig/
-	cat debian/pkgconfig/rmlui.pc | sed -e 's|DEB_HOST_MULTIARCH|$(DEB_HOST_MULTIARCH)|g' \
-		> $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig/rmlui.pc
 
 # Build architecture-independent files here.
 binary-indep: install

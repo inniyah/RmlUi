@@ -1,3 +1,9 @@
+rmlui (4.3-0inniyah2) UNRELEASED; urgency=medium
+
+  * Minor changes to packaging.
+
+ -- Miriam Ruiz <miriam@debian.org>  Mon, 04 Apr 2022 10:01:55 +0200
+
 rmlui (4.3-0inniyah1) UNRELEASED; urgency=low
 
   * Initial release.

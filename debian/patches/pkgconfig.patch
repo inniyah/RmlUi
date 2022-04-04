@@ -1,0 +1,45 @@
+Index: rmlui-4.3/CMakeLists.txt
+===================================================================
+--- rmlui-4.3.orig/CMakeLists.txt
++++ rmlui-4.3/CMakeLists.txt
+@@ -69,7 +69,7 @@ list(APPEND CORE_PRIVATE_DEFS RMLUI_VERS
+ 
+ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+ 	option(BUILD_TESTING "" OFF)
+-    include(CTest)
++	include(CTest)
+ 	
+ 	if(BUILD_TESTING)
+ 		set(RMLUI_TESTS_ENABLED ON)
+@@ -897,6 +897,15 @@ if(BUILD_SAMPLES)
+ endif()
+ 
+ #===================================
++# Generate pkg-config file =========
++#===================================
++
++	configure_file(pkgconfig/nanogui.pc.in nanogui.pc @ONLY)
++
++	install(FILES ${CMAKE_BINARY_DIR}/nanogui.pc
++		DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
++
++#===================================
+ # Generate Config.cmake files ======
+ #===================================
+ 
+Index: rmlui-4.3/pkgconfig/nanogui.pc.in
+===================================================================
+--- /dev/null
++++ rmlui-4.3/pkgconfig/nanogui.pc.in
+@@ -0,0 +1,11 @@
++prefix=@CMAKE_INSTALL_PREFIX@
++exec_prefix=${prefix}
++libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
++includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
++
++Name: RmlUi
++Description: C++ user interface based on HTML and CSS standards
++Version: @PROJECT_VERSION@
++Requires: nanovg glew egl
++Libs: -L${libdir} -lnanogui -lGLU -lGL -lm
++Cflags: -I${includedir}
