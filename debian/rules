@@ -86,7 +86,9 @@ binary-arch: install
 	dh_installman
 	dh_link
 	dh_strip
-	dh_compress
+	dh_compress --exclude=.txt --exclude=.pdf --exclude=.py  --exclude=.tga \
+		--exclude=.fnt --exclude=.ttf --exclude=.cpp --exclude=.h \
+		--exclude=.xml --exclude=.json --exclude=.rml --exclude=.rcss
 	dh_fixperms
 	dh_makeshlibs
 	[ ! -e /usr/bin/dh_buildinfo ] || dh_buildinfo
