@@ -1,7 +1,7 @@
-Index: rmlui-4.3/CMakeLists.txt
+Index: RmlUi/CMakeLists.txt
 ===================================================================
---- rmlui-4.3.orig/CMakeLists.txt
-+++ rmlui-4.3/CMakeLists.txt
+--- RmlUi.orig/CMakeLists.txt
++++ RmlUi/CMakeLists.txt
 @@ -69,7 +69,7 @@ list(APPEND CORE_PRIVATE_DEFS RMLUI_VERS
  
  if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
@@ -11,7 +11,7 @@ Index: rmlui-4.3/CMakeLists.txt
  	
  	if(BUILD_TESTING)
  		set(RMLUI_TESTS_ENABLED ON)
-@@ -897,6 +897,15 @@ if(BUILD_SAMPLES)
+@@ -911,6 +911,15 @@ if(BUILD_SAMPLES)
  endif()
  
  #===================================
@@ -27,10 +27,10 @@ Index: rmlui-4.3/CMakeLists.txt
  # Generate Config.cmake files ======
  #===================================
  
-Index: rmlui-4.3/pkgconfig/RmlUi.pc.in
+Index: RmlUi/pkgconfig/RmlUi.pc.in
 ===================================================================
 --- /dev/null
-+++ rmlui-4.3/pkgconfig/RmlUi.pc.in
++++ RmlUi/pkgconfig/RmlUi.pc.in
 @@ -0,0 +1,11 @@
 +prefix=@CMAKE_INSTALL_PREFIX@
 +exec_prefix=${prefix}
