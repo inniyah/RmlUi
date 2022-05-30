@@ -40,7 +40,7 @@ FontEngineInterfaceBitmap::~FontEngineInterfaceBitmap()
 	FontProviderBitmap::Shutdown();
 }
 
-bool FontEngineInterfaceBitmap::LoadFontFace(const String& file_name, bool /*fallback_face*/)
+bool FontEngineInterfaceBitmap::LoadFontFace(const String& file_name, bool /*fallback_face*/, FontWeight /*weight*/)
 {
 	return FontProviderBitmap::LoadFontFace(file_name);
 }
@@ -105,7 +105,7 @@ int FontEngineInterfaceBitmap::GetStringWidth(FontFaceHandle handle, const Strin
 }
 
 int FontEngineInterfaceBitmap::GenerateString(FontFaceHandle handle, FontEffectsHandle /*font_effects_handle*/, const String& string,
-	const Vector2f& position, const Colourb& colour, GeometryList& geometry)
+	const Vector2f& position, const Colourb& colour, float /*opacity*/, GeometryList& geometry)
 {
 	auto handle_bitmap = reinterpret_cast<FontFaceBitmap*>(handle);
 	return handle_bitmap->GenerateString(string, position, colour, geometry);
